@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "d279e6ae-0fd6-4363-bb3e-89fc510ffbad",
+		"name": "itdev162-P2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23441367"
+	},
+	"item": [
+		{
+			"name": "Get Posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5128/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5128",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Post",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5128/api/posts/2e0d9094-2f3b-49c8-825a-eb1497fb60aa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5128",
+					"path": [
+						"api",
+						"posts",
+						"2e0d9094-2f3b-49c8-825a-eb1497fb60aa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Post",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var moment = require('moment');\r",
+							"var date = moment().toISOString();\r",
+							"\r",
+							"pm.environment.set('theDate', date);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"{{$guid}}\",\r\n    \"title\":\"Test post created by Postman\",\r\n    \"body\" : \"Lorem Ipsum is simply dummy text of the printing and typestting industry.\",\r\n    \"date\":\"{{theDate}}\",\r\n    \"done\":false\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5128/api/posts?Content-Type=application/json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5128",
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Post",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var moment = require('moment');\r",
+							"var date = moment().toISOString();\r",
+							"\r",
+							"pm.environment.set('theDate', date);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"59981624-d836-4a1c-9aba-c8caf5400b10\",\r\n    \"title\":\"Test post created by Postman - Updated\",\r\n    \"body\" : \"Lorem Ipsum is simply dummy text of the printing and typestting industry.\",\r\n    \"date\":\"{{theDate}}\",\r\n    \"done\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5128/api/posts?Content-Type=application/json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5128",
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Post",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var moment = require('moment');\r",
+							"var date = moment().toISOString();\r",
+							"\r",
+							"pm.environment.set('theDate', date);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"7bca6765-96d8-49f7-bceb-fd56b92ff518\",\r\n    \"title\":\"Task 2\",\r\n    \"body\" : \"Task 2 yet to be done\",\r\n    \"date\":\"2023-12-10T20:03:26.059\",\r\n    \"done\":false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5128/api/posts?Content-Type=application/json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5128",
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,21 @@
+.post-card {
+    max-width: 500px;
+    margin: 40px auto;
+    color: red;
+}
+
+.post-card-done {
+    max-width: 500px;
+    margin: 40px auto;
+    color: green;
+    text-decoration: line-through;
+}
+.post-card:hover {
+    cursor: pointer;
+    background-color: lightpink;
+}
+
+.post-card-done:hover {
+    cursor: pointer;
+    background-color: lightgreen;
+}
